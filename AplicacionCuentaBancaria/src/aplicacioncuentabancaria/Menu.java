@@ -11,7 +11,7 @@ package aplicacioncuentabancaria;
  */
 public class Menu {
     
-    public static void pintaMenu(){
+    public static void pintaMenu(){//pues eso, pinta el menu
         
         System.out.println("-------------------------------------------");
         System.out.println("1- Ver el numero de cuenta completo.");

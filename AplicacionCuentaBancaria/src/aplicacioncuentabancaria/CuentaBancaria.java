@@ -28,17 +28,17 @@ public class CuentaBancaria {
             System.out.println("Numero de cuenta incorrecto");
         }
         
-    }
+    }//constructor si diese el saldo
 
     public CuentaBancaria(String titular, String numCuenta) {
         this.titular = titular;
         vCuenta = numCuenta.split("-");
-        if (comprobarDC() == true){
+        if (comprobarDC() == true){//este "if" es para comprobar previamente que el numero de cuenta es correcto
             this.numCuenta = numCuenta;
         }else{
             System.out.println("Numero de cuenta incorrecto");
         }
-    }
+    }//constructor si no da el saldo
     
     public String verNumEntidad(){
         return vCuenta[0];
@@ -89,6 +89,8 @@ public class CuentaBancaria {
 
     }
     private boolean comprobarDC(){
+//comprueba si el digito de control es correcto ademas de que se ha escrito bien el resto del numero de cuenta
+//comprueba que no hay espacios
         for (int i = 0; i < 4; i++) {
             if (vCuenta[0].substring(i,i+1).equals(" ")){
                 return false;
@@ -107,6 +109,7 @@ public class CuentaBancaria {
                 return false;
             }
         }
+        //comprueba que la longitud de la entidad, oficina, dc y numero de cuenta es correcta
         if (vCuenta[0].length() == 4 && vCuenta[1].length() == 4 && vCuenta[2].length() == 2 && vCuenta[3].length() == 10){
             int dc=0, dc1=0;
             String resultado;
@@ -158,6 +161,7 @@ public class CuentaBancaria {
             return false;
         
     }
+    //como las operaciones que realizamos son ocultas al usuario, debemos devolver a un metodo para que lo envie al main
     public boolean calcular(){
         if (comprobarDC()){
             return true;
